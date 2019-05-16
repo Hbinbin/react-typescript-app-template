@@ -27,6 +27,7 @@
     "babel-jest": "^24.8.0",
     "babel-loader": "8.0.5",
     "babel-plugin-named-asset-import": "^0.3.2",
+    "babel-plugin-transform-decorators-legacy": "^1.3.5",
     "babel-plugin-transform-react-jsx": "^6.24.1",
     "babel-preset-react-app": "^9.0.0",
     "bfj": "6.1.1",
@@ -153,5 +154,13 @@
     "presets": [
       "react-app"
     ]
-  }
+  },
+  "plugins": [
+    [
+      "@babel/plugin-proposal-decorators",
+      {
+        "legacy": true
+      }
+    ]
+  ]
 }
