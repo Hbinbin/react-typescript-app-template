@@ -26,6 +26,7 @@
     "babel-eslint": "10.0.1",
     "babel-jest": "^24.8.0",
     "babel-loader": "8.0.5",
+    "babel-plugin-import": "^1.11.0",
     "babel-plugin-named-asset-import": "^0.3.2",
     "babel-plugin-transform-decorators-legacy": "^1.3.5",
     "babel-plugin-transform-react-jsx": "^6.24.1",
@@ -156,6 +157,13 @@
     ]
   },
   "plugins": [
+    [
+      "import",
+      {
+        "libraryName": "antd-mobile",
+        "style": "css"
+      }
+    ],
     [
       "@babel/plugin-proposal-decorators",
       {
