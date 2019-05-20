@@ -56,3 +56,40 @@ npm install eslint-plugin-typescript --save-dev
   // 开启自动修复
   "eslint.autoFixOnSave": true,
 ```
+### 3.配置模块的别名alias
+```
+// 1.webpack.config.js中增加方法和配置
+const resolvePath = function (dir) {
+  return path.join(__dirname, '..', dir)
+}
+...
+alias: {
+  // 增加如下配置
+  '@cps': resolvePath('/src/components'),
+  '@cts': resolvePath('/src/containers'),
+  '@redux': resolvePath('/src/redux'),
+  '@utils': resolvePath('/src/utils')
+}
+...
+
+// 2.在tscongfig.json中compilerOptions中加
+...
+"baseUrl": "src",
+"paths": {
+  "@cps/*": [
+    "components/*"
+  ],
+  "@cts/*": [
+    "containers/*"
+  ],
+  "@redux/*": [
+    "redux/*"
+  ],
+  "@utils/*": [
+    "utils/*"
+  ]
+}
+...
+// 3.重启项目：npm start
+
+```

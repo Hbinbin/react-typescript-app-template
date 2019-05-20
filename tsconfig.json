@@ -6,6 +6,21 @@
       "dom.iterable",
       "esnext"
     ],
+    "baseUrl": "src",
+    "paths": {
+      "@cps/*": [
+        "components/*"
+      ],
+      "@cts/*": [
+        "containers/*"
+      ],
+      "@redux/*": [
+        "redux/*"
+      ],
+      "@utils/*": [
+        "utils/*"
+      ]
+    },
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,

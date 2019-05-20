@@ -279,7 +279,8 @@ module.exports = function (webpackEnv) {
         'react-native': 'react-native-web',
         '@cps': resolvePath('/src/components'),
         '@cts': resolvePath('/src/containers'),
-        '@redux': resolvePath('/src/redux')
+        '@redux': resolvePath('/src/redux'),
+        '@utils': resolvePath('/src/utils')
       },
       plugins: [
         // Adds support for installing with Plug'n'Play, leading to faster installs and adding
