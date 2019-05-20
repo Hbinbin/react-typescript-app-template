@@ -39,8 +39,8 @@ npm install typescript typescript-eslint-parser --save-dev
 // 安装 eslint-plugin-typescript
 npm install eslint-plugin-typescript --save-dev
 
-// eslint的配置参考.eslintrc.js文件
-// 需要注意的是：如果要开启保存文件时自动修复代码需要修稿vscode的配置文件：
+// eslint的配置参考项目中的.eslintrc.js文件
+// 需要注意的是：如果要开启保存文件时自动修复代码需要修改vscode的配置文件：
 // 增加需要自动修复的语言
   "eslint.validate": [
       ...
