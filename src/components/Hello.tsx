@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 // import { connect } from 'react-redux'
-import { Button } from 'antd-mobile'
+import { SwipeAction, List, Button } from 'antd-mobile'
+import '@css/hello.css'
 
 // @connect(
 //   state => state,
@@ -15,8 +16,9 @@ class Hello extends Component {
   }
   render () {
     return (
-      <div>
-        <Button>123</Button>
+      <div className='hello'>
+        <h2>Lying on the beach</h2>
+
       </div>
     )
   }

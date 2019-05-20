@@ -126,10 +126,9 @@ module.exports = function (webpackEnv) {
     mode: isEnvProduction ? 'production' : isEnvDevelopment && 'development',
     // Stop compilation early in production
     bail: isEnvProduction,
+    // 去除map文件
     devtool: isEnvProduction
-      ? shouldUseSourceMap
-        ? 'source-map'
-        : false
+      ? false
       : isEnvDevelopment && 'cheap-module-source-map',
     // These are the "entry points" to our application.
     // This means they will be the "root" imports that are included in JS bundle.
@@ -280,7 +279,8 @@ module.exports = function (webpackEnv) {
         '@cps': resolvePath('/src/components'),
         '@cts': resolvePath('/src/containers'),
         '@redux': resolvePath('/src/redux'),
-        '@utils': resolvePath('/src/utils')
+        '@utils': resolvePath('/src/utils'),
+        '@css': resolvePath('/src/assets/css')
       },
       plugins: [
         // Adds support for installing with Plug'n'Play, leading to faster installs and adding

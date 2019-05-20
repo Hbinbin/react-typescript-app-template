@@ -19,6 +19,9 @@
       ],
       "@utils/*": [
         "utils/*"
+      ],
+      "@css/*": [
+        "assets/css/*"
       ]
     },
     "allowJs": true,
