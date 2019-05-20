@@ -93,3 +93,26 @@ alias: {
 // 3.重启项目：npm start
 
 ```
+### 3.按需引入antd-mobile
+安装插件babel-plugin-import
+`npm install babel-plugin-import --save-dev`
+在webpack.config.js中添加配置
+```
+ plugins: [
+    [
+      require.resolve('babel-plugin-named-asset-import'),
+      {
+        loaderMap: {
+          svg: {
+            ReactComponent: '@svgr/webpack?-svgo,+ref![path]'
+          }
+        }
+      }
+    ],
+    // 添加如下配置
+    [
+      require.resolve('babel-plugin-import'),
+      { libraryName: 'antd-mobile', style: 'css' }
+    ]
+  ]
+```
