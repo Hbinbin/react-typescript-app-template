@@ -62,4 +62,5 @@ declare module '*.module.sass' {
   const classes: { [key: string]: string }
   export default classes
 }
+// 增加vconsole插件的全局声明
 declare module 'vconsole'
