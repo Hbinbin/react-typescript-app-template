@@ -7,6 +7,8 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import '@css/index.css'
 import App from './App'
 import * as serviceWorker from './serviceWorker'
+import VConsole from 'vconsole'
+const vConsole = new VConsole()
 // import rootReducer from '@redux/rootReducer'
 
 // const store = createStore(rootReducer, compose(

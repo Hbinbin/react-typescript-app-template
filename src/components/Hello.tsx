@@ -13,6 +13,7 @@ class Hello extends Component {
     this.state = {
 
     }
+    console.log(123, props)
   }
   render () {
     return (
