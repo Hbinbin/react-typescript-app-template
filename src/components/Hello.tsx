@@ -18,7 +18,6 @@ class Hello extends Component {
     return (
       <div className='hello'>
         <h2>Lying on the beach</h2>
-
       </div>
     )
   }
