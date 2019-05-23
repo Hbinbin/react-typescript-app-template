@@ -36,7 +36,9 @@
     "resolveJsonModule": true,
     "isolatedModules": false,
     "noEmit": true,
-    "jsx": "preserve"
+    "jsx": "preserve",
+    "experimentalDecorators": true,
+    "noImplicitAny": false
   },
   "include": [
     "src"
