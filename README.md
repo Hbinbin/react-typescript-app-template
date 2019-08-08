@@ -1,5 +1,4 @@
-## React的Typescript项目基本架构和配置
-新建typecsript的react项目时可直接拷贝复用
+
 ### 安装依赖
 `$ npm i`
 ### 本地运行
@@ -15,15 +14,20 @@
 // 安装ESLint
 $ npm install eslint --save-dev  
 
-// 安装typescript和typescript-eslint-parser解析器  
+// 安装typescript和@typescript-eslint/parser解析器  
 $ npm install typescript 
-$ typescript-eslint-parser --save-dev  
+$ npm install @typescript-eslint/parser --save-dev 
 
-// 安装 eslint-plugin-typescript
-$ npm install eslint-plugin-typescript --save-dev
+// 安装 @typescript-eslint/eslint-plugin
+$ npm i @typescript-eslint/eslint-plugin --save-dev  
+
+注：@typescript-eslint/parser 和 @typescript-eslint/eslint-plugin的版本必须保持一致  
+
+//  配置规则插件
+extends: ["standard", "standard-react", "plugin:@typescript-eslint/recommended"],
 
 // eslint的配置参考项目中的.eslintrc.js文件
-// 需要注意的是：如果要开启保存文件时自动修复代码需要修改vscode的配置文件：x s
+// 需要注意的是：如果要开启保存文件时自动修复代码需要修改vscode的配置文件：settings.json
 // 增加需要自动修复的语言
   "eslint.validate": [
       ...
@@ -75,31 +79,6 @@ alias: {
 }
 ...
 // 3.重启项目：npm start
-
-```
-### 3.按需引入antd-mobile
-安装插件babel-plugin-import
-`npm install babel-plugin-import --save-dev`
-在webpack.config.js中添加配置
-```
- plugins: [
-    [
-      require.resolve('babel-plugin-named-asset-import'),
-      {
-        loaderMap: {
-          svg: {
-            ReactComponent: '@svgr/webpack?-svgo,+ref![path]'
-          }
-        }
-      }
-    ],
-    // 添加如下配置v
-    [
-      require.resolve('babel-plugin-import'),
-      { libraryName: 'antd-mobile', style: 'css' }
-    ]
-  ]
-```
 
 ### 其它
 #### 1.vconsole调试插件的引入

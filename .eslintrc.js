@@ -1,7 +1,7 @@
 
 module.exports = {
   root: true,
-  parser: 'typescript-eslint-parser',
+  parser: '@typescript-eslint/parser', // typescript-eslint/parser // typescript-eslint-parser
   parserOptions: {
     "ecmaFeatures": {
       "experimentalObjectRestSpread": true,
@@ -12,15 +12,27 @@ module.exports = {
   env: {
     browser: true,
   },
-  extends: ["standard", "standard-react"],// https://github.com/standard/standard/blob/master/docs/RULES-en.md
+  extends: ["standard", "standard-react", "plugin:@typescript-eslint/recommended"],// https://github.com/standard/standard/blob/master/docs/RULES-en.md
   plugins: [
     "react",
-    "typescript"
+    "typescript",
+    "@typescript-eslint",
   ],
   // 2：报错；1：警告；0：关闭规则
   'rules': {
     // typescript相关配置
-    'typescript/class-name-casing': 'error',
+    'typescript/class-name-casing': 2,
+    '@typescript-eslint/interface-name-prefix': 0,
+    '@typescript-eslint/explicit-member-accessibility': 0,
+    '@typescript-eslint/explicit-function-return-type': 0,
+    '@typescript-eslint/no-empty-interface': 0,
+    '@typescript-eslint/indent': [2, 2],
+    '@typescript-eslint/no-explicit-any': 0,
+    '@typescript-eslint/camelcase': 0,
+    '@typescript-eslint/no-use-before-define': 0,
+    '@typescript-eslint/no-object-literal-type-assertion': 0,
+    '@typescript-eslint/no-var-requires': 0,
+    '@typescript-eslint/no-unused-vars': 0,
 
     // react相关配置
     // "react/display-name": 0, //防止在React组件定义中丢失displayName
@@ -31,7 +43,7 @@ module.exports = {
     // "react/jsx-indent -props": [0, 4], //验证JSX中的props缩进
     // "react/jsx-key": 2, //在数组或迭代器中验证JSX具有key属性
     // "react/jsx-max-props-per-line": [0, { "maximum": 1 }], // 限制JSX中单行上的props的最大数量
-    // "react/jsx-no-bind": 0, //JSX中不允许使用箭头函数和bind
+    "react/jsx-no-bind": 0, //JSX中不允许使用箭头函数和bind
     // "react/jsx-no-duplicate-props": 2, //防止在JSX中重复的props
     // "react/jsx-no-literals": 0, //防止使用未包装的JSX字符串
     // "react/jsx-no-undef": 0, //在JSX中禁止未声明的变量
@@ -50,21 +62,31 @@ module.exports = {
     "react/prop-types": 0, //防止在React组件定义中丢失props验证
     // "react/react-in-jsx-scope": 2, //使用JSX时防止丢失React
     "react/self-closing-comp": 0, //防止没有children的组件的额外结束标签
-    "react/sort-comp": 2, //强制组件方法顺序
+    "react/sort-comp": 0, //强制组件方法顺序
     // "no-extra-boolean-cast": 0, //禁止不必要的bool转换
     // "react/no-array-index-key": 0, //防止在数组中遍历中使用数组key做索引
     "react/no-deprecated": 1, //不使用弃用的方法
     // "react/jsx-equals-spacing": 2, //在JSX属性中强制或禁止等号周围的空格
-    
+
     // 其它相关配置
+    // "no-new": 0,
+    // "no-class-assign": 0 // 禁止修改类声明的变量
     // 'arrow-parens': 0, // allow paren-less arrow functions
     // 'generator-star-spacing': 0, // allow async-await
-    "no-unused-vars": 1, // 引用但未使用的只给警告不报错
+    "no-unused-vars": 0, // 引用但未使用的只给警告不报错
     // "jsx-quotes": 1,
     "no-var": 2,// 要求使用 let 或 const 而不是 var
     "no-useless-constructor": 0,
-    "no-undef": 0
-    // "no-new": 0,
-    // "no-class-assign": 0 // 禁止修改类声明的变量
+    "no-undef": 0,
+    "one-var": 0,
+    "no-new-func": 0,
+    "no-unused-expressions": 0,
+    "quotes": 2,
+    "no-constant-condition": 0,
+    "no-mixed-operators": 0,
+    "no-useless-return": 0,
+    "no-return-await": 0,
+    "no-unreachable": 0,
+    "no-new": 0
   }
 }
