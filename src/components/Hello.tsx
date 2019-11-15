@@ -3,17 +3,12 @@ import React, { Component } from 'react'
 import { SwipeAction, List, Button } from 'antd-mobile'
 import '@css/hello.css'
 
-// @connect(
-//   state => state,
-//   {}
-// )
 class Hello extends Component {
-  constructor (props:any) {
+  constructor (props: any) {
     super(props)
     this.state = {
 
     }
-    console.log(123, props)
   }
   render () {
     return (

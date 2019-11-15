@@ -8,24 +8,25 @@ import '@css/index.css'
 import App from './App'
 import * as serviceWorker from './serviceWorker'
 import VConsole from 'vconsole'
+import rootReducer from '@redux/rootReducer'
 const vConsole = new VConsole()
-// import rootReducer from '@redux/rootReducer'
 
-// declare global {
-//   interface Window {
-//     __REDUX_DEVTOOLS_EXTENSION__: Function
-//     a: string
-//   }
-// }
-// const store = createStore(rootReducer, compose(
-//   applyMiddleware(thunk),
-//   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-// ))
+// 全局window属性
+declare global {
+  interface Window {
+    __REDUX_DEVTOOLS_EXTENSION__: Function;
+  }
+}
+// redux store配置
+const store = createStore(rootReducer, compose(
+  applyMiddleware(thunk),
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+))
+
 ReactDOM.render(
-  // <Provider store={store}>
-  //   <App />
-  // </Provider>
-  <App />
+  <Provider store={store}>
+    <App />
+  </Provider>
   ,
   document.getElementById('root'))
 
