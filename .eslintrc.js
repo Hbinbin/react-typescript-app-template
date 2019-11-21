@@ -17,6 +17,7 @@ module.exports = {
     "react",
     "typescript",
     "@typescript-eslint",
+    "react-hooks"
   ],
   // 2：报错；1：警告；0：关闭规则
   'rules': {
@@ -68,6 +69,10 @@ module.exports = {
     "react/no-deprecated": 1, //不使用弃用的方法
     // "react/jsx-equals-spacing": 2, //在JSX属性中强制或禁止等号周围的空格
 
+    // react-hooks相关配置
+    "react-hooks/rules-of-hooks": "error", // Checks rules of Hooks
+    "react-hooks/exhaustive-deps": "warn", // Checks effect dependencies
+
     // 其它相关配置
     // "no-new": 0,
     // "no-class-assign": 0 // 禁止修改类声明的变量
@@ -87,6 +92,6 @@ module.exports = {
     "no-useless-return": 0,
     "no-return-await": 0,
     "no-unreachable": 0,
-    "no-new": 0
+    "no-new": 0,
   }
 }
