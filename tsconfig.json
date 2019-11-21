@@ -12,9 +12,6 @@
       "@cps/*": [
         "components/*"
       ],
-      "@cts/*": [
-        "containers/*"
-      ],
       "@redux/*": [
         "redux/*"
       ],
@@ -23,6 +20,15 @@
       ],
       "@css/*": [
         "assets/css/*"
+      ],
+      "@images/*": [
+        "assets/images/*"
+      ],
+      "@api/*": [
+        "api/*"
+      ],
+      "@common/*": [
+        "common/*"
       ]
     },
     "allowJs": true,

@@ -277,10 +277,12 @@ module.exports = function (webpackEnv) {
         // https://www.smashingmagazine.com/2016/08/a-glimpse-into-the-future-with-react-native-for-web/
         'react-native': 'react-native-web',
         '@cps': resolvePath('/src/components'),
-        '@cts': resolvePath('/src/containers'),
         '@redux': resolvePath('/src/redux'),
         '@utils': resolvePath('/src/utils'),
-        '@css': resolvePath('/src/assets/css')
+        '@css': resolvePath('/src/assets/css'),
+        '@images': resolvePath('/src/assets/images'),
+        '@common': resolvePath('/src/common'),
+        '@api': resolvePath('/src/api')
       },
       plugins: [
         // Adds support for installing with Plug'n'Play, leading to faster installs and adding
