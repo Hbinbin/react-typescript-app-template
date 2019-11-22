@@ -1,31 +1,21 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import * as serviceWorker from './serviceWorker'
 import { Provider } from 'react-redux'
 import { createStore, applyMiddleware, compose } from 'redux'
 import thunk from 'redux-thunk'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import '@css/index.css'
 import App from './App'
-import * as serviceWorker from './serviceWorker'
 import rootReducer from '@redux/rootReducer'
 import { getEnv, getPlatform } from '@utils/utils'
 const { isDebug, isPrd } = getEnv()
 const { isComputerBrower } = getPlatform()
-
-// 全局window属性
-declare global {
-  interface Window {
-    __REDUX_DEVTOOLS_EXTENSION__: Function;
-    __wxjs_environment: 'miniprogram' | 'browser';
-  }
-}
-
-// 非生产环境开启vconcole或debug模式强制开启vconcole
+// 非生产环境开启vconcole或debug模式强制开启vconcole（仅用于手机端H5的调试）
 if ((!isPrd && !isComputerBrower) || isDebug) {
   const VConsole = require('vconsole')
   new VConsole()
 }
-
 // redux store配置
 const store = isPrd ? (
   createStore(rootReducer, applyMiddleware(thunk))
