@@ -32,3 +32,19 @@ export function getPlatform () {
     isAliPayMiniProgram // 支付宝小程序
   }
 }
+/**
+ * url参数查询
+ * @static
+ * @param {String} url - url地址
+ * @param {String} query - 查询参数
+ */
+export const getParams = (url: string = location.search, query: string) => {
+  const paramStr = url.split('?')[1]
+  const paramArr = paramStr && paramStr.split('&') || []
+  const params: any = {}
+  paramArr.forEach((param, i) => {
+    const paramData = param.split('=')
+    params[paramData[0]] = paramData[1]
+  })
+  return query ? params[query] : params
+}
