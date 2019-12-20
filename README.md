@@ -141,9 +141,11 @@ devtool: isEnvProduction
   3.package.json中添加运行命令：
   ```
    "analyze": "source-map-explorer 'build/static/js/*.js'"
- 
+  ```
   4.终端中运行：
   ```
   npm run build
   npm run analyze
   ```
+
+  ## 配置完不生效时，请重启编辑器！
