@@ -26,7 +26,7 @@ $ npm i @typescript-eslint/eslint-plugin --save-dev
 //  4、配置规则插件
 extends: ["standard", "standard-react", "plugin:@typescript-eslint/recommended"],
 
-// 5、eslint的配置参考项目中的.eslintrc.js文件
+// 5、代码自动修复的配置
 // 需要注意的是：如果要开启保存文件时自动修复代码需要修改vscode的配置文件：settings.json
 // 增加需要自动修复的语言
   "eslint.validate": [
@@ -44,12 +44,15 @@ extends: ["standard", "standard-react", "plugin:@typescript-eslint/recommended"]
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
   },
-  6、SCSS语法规则的检测：vscode安装插件Prettier，之后settings.json添加：
+  // SCSS语法规则的检测：vscode安装插件Prettier，之后settings.json添加：
   "[scss]": {
     "editor.formatOnSave": true
   },
+  
 ```
-
+[.eslintrc.js配置参考](https://github.com/Hbinbin/react-typescript-app-template/blob/master/.eslintrc.js)
+[vscode的settings.json配置参考](https://github.com/Hbinbin/react-typescript-app-template/blob/master/vscode.settings.json)
+[tsconfig.json配置参考](https://github.com/Hbinbin/react-typescript-app-template/blob/master/tsconfig.json)
 ### 2.配置模块的别名alias
 ```
 // 1.webpack.config.js中增加方法和配置
@@ -83,8 +86,9 @@ alias: {
     "utils/*"
   ]
 }
-...
-// 3.重启项目：npm start
+3.重启项目：npm start
+```
+
 
 ### 其它
 #### 1.vconsole调试插件的引入
@@ -128,3 +132,8 @@ devtool: isEnvProduction
       ? false
       : isEnvDevelopment && 'cheap-module-source-map'
 ```
+#### 4.项目分析:
+  1.需要开启.map文件
+  2.安装插件：npm install --save source-map-explorer
+  3.package.json中添加运行命令："analyze": "source-map-explorer 'build/static/js/*.js'"
+  4.终端中运行：npm run analyze
