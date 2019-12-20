@@ -134,6 +134,16 @@ devtool: isEnvProduction
 ```
 #### 4.项目分析:
   1.需要开启.map文件
-  2.安装插件：npm install --save source-map-explorer
-  3.package.json中添加运行命令："analyze": "source-map-explorer 'build/static/js/*.js'"
-  4.终端中运行：npm run analyze
+  2.安装插件：
+  ```
+  npm install --save source-map-explorer
+  ```
+  3.package.json中添加运行命令：
+  ```
+   "analyze": "source-map-explorer 'build/static/js/*.js'"
+ 
+  4.终端中运行：
+  ```
+  npm run build
+  npm run analyze
+  ```
