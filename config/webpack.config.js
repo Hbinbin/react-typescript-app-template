@@ -282,7 +282,8 @@ module.exports = function (webpackEnv) {
         '@css': resolvePath('/src/assets/css'),
         '@images': resolvePath('/src/assets/images'),
         '@common': resolvePath('/src/common'),
-        '@api': resolvePath('/src/api')
+        '@api': resolvePath('/src/api'),
+        '@typings': resolvePath('/src/typings')
       },
       plugins: [
         // Adds support for installing with Plug'n'Play, leading to faster installs and adding
@@ -319,7 +320,6 @@ module.exports = function (webpackEnv) {
               options: {
                 formatter: require.resolve('react-dev-utils/eslintFormatter'),
                 eslintPath: require.resolve('eslint')
-
               },
               loader: require.resolve('eslint-loader')
             }

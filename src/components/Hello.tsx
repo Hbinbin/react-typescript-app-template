@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
-// import { connect } from 'react-redux'
-import '@css/hello.css'
+import '@css/hello.scss'
 
 class Hello extends Component {
   constructor (props: any) {

@@ -1,5 +1,4 @@
 import React from 'react'
-import '@css/App.css'
 import Hello from '@cps/Hello'
 
 const App: React.FC = () => {

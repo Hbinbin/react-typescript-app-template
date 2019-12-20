@@ -44,11 +44,6 @@ extends: ["standard", "standard-react", "plugin:@typescript-eslint/recommended"]
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
   },
-  // SCSS语法规则的检测：vscode安装插件Prettier，之后settings.json添加：
-  "[scss]": {
-    "editor.formatOnSave": true
-  },
-  
 ```
 [.eslintrc.js配置参考](https://github.com/Hbinbin/react-typescript-app-template/blob/master/.eslintrc.js)
 [vscode的settings.json配置参考](https://github.com/Hbinbin/react-typescript-app-template/blob/master/vscode.settings.json)

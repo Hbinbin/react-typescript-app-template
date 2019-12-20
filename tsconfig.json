@@ -29,6 +29,9 @@
       ],
       "@common/*": [
         "common/*"
+      ],
+      "@typings/*": [
+        "typings/*"
       ]
     },
     "allowJs": true,
