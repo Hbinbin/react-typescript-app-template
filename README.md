@@ -11,37 +11,43 @@
 ### 1.Typescript的ESlint配置
 参考地址：[Typescript配置](https://ts.xcatliu.com/engineering/lint)
 ```
-// 安装ESLint
+// 1、安装ESLint
 $ npm install eslint --save-dev  
 
-// 安装typescript和@typescript-eslint/parser解析器  
+// 2、安装typescript和@typescript-eslint/parser解析器  
 $ npm install typescript 
 $ npm install @typescript-eslint/parser --save-dev 
 
-// 安装 @typescript-eslint/eslint-plugin
+// 3、安装 @typescript-eslint/eslint-plugin
 $ npm i @typescript-eslint/eslint-plugin --save-dev  
 
 注：@typescript-eslint/parser 和 @typescript-eslint/eslint-plugin的版本必须保持一致  
 
-//  配置规则插件
+//  4、配置规则插件
 extends: ["standard", "standard-react", "plugin:@typescript-eslint/recommended"],
 
-// eslint的配置参考项目中的.eslintrc.js文件
+// 5、eslint的配置参考项目中的.eslintrc.js文件
 // 需要注意的是：如果要开启保存文件时自动修复代码需要修改vscode的配置文件：settings.json
 // 增加需要自动修复的语言
   "eslint.validate": [
-      ...
-      {
-        "language": "typescript",
-        "autoFix": true
-      },
-      {
-        "language": "typescriptreact",
-        "autoFix": true
-      },
-      ...
+    "html",
+    "javascript",
+    "vue",
+    "vue-html",
+    "react",
+    "typescript",
+    "typescriptreact",
+  ],
   // 开启自动修复
-  "eslint.autoFixOnSave": true,
+  "eslint.autoFixOnSave": true,（此设置已废弃）
+  此项已修改为：
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  6、SCSS语法规则的检测：vscode安装插件Prettier，之后settings.json添加：
+  "[scss]": {
+    "editor.formatOnSave": true
+  },
 ```
 
 ### 2.配置模块的别名alias
