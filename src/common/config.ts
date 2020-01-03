@@ -2,4 +2,4 @@
 export default class Config {
 
 }
-window.Config = Config
+window.Config = Config;
