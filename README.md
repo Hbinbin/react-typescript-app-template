@@ -142,5 +142,11 @@ devtool: isEnvProduction
   npm run build
   npm run analyze
   ```
+  #### 5.vscode新建文件时的文件模板
+  ```
+  在vscode"创建用户代码片段"，代码详见common文件夹下的：
+  vscode.react-hooks.code-snippets.json
+  vscode.react-ts.code-snippets
+  ```
 
   ## 配置完不生效时，请重启编辑器！
