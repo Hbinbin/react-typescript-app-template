@@ -94,6 +94,7 @@ module.exports = {
     "no-unreachable": 0,
     "no-new": 0,
     "comma-dangle": 0, // 尾逗号
-    "semi": ["error", "always"] // 语句结束分号
+    "semi": ["error", "always"], // 语句结束分号
+    "lines-between-class-members": 0
   }
 }
