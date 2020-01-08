@@ -10,7 +10,7 @@ const chalk = require('react-dev-utils/chalk');
  *
  * @param {Object} options
  */
-function getAdditionalModulePaths(options = {}) {
+function getAdditionalModulePaths (options = {}) {
   const baseUrl = options.baseUrl;
 
   // We need to explicitly check for null and undefined (and not a falsy value) because
@@ -46,7 +46,7 @@ function getAdditionalModulePaths(options = {}) {
   );
 }
 
-function getModules() {
+function getModules () {
   // Check if TypeScript is setup
   const hasTsConfig = fs.existsSync(paths.appTsConfig);
   const hasJsConfig = fs.existsSync(paths.appJsConfig);

@@ -1,5 +1,5 @@
 {
-  "name": "{{name}}",
+  "name": "react-app",
   "description": "{{description}}",
   "author": "{{author}}",
   "version": "0.1.0",
