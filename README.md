@@ -86,6 +86,43 @@ alias: {
 
 
 ### 其它
+#### 1. antd/antd-mobile的动态引入
+```
+// package.json中添加
+"plugins": [
+    [
+      "import",
+      {
+        "libraryName": "antd-mobile",
+        "style": "css"
+      }
+    ],
+    ...
+  ]
+// webpack.config.js中添加如下
+oneof: [
+  some code.....
+  {
+    test: /\.(js|mjs|jsx|ts|tsx)$/,
+    include: paths.appSrc,
+    loader: require.resolve('babel-loader'),
+    options: {
+      customize: require.resolve(
+        'babel-preset-react-app/webpack-overrides'
+      ),
+      plugins: [
+        some code.....
+        [
+          require.resolve('babel-plugin-import'),
+          { libraryName: 'antd-mobile', style: 'css' }
+        ]
+      ],
+      some code.....
+    },
+  },
+]
+
+```
 #### 1.vconsole调试插件的引入
 `$ npm i vconsole --save-dev`
 在入口文件index.tsx中import且创建vcosole实例
