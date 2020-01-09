@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import '@css/hello.scss';
-
+import { addParams } from '@utils/utils';
 class Hello extends Component {
   constructor (props: any) {
     super(props);
