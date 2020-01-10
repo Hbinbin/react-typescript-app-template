@@ -3,17 +3,20 @@
 
 #### 在window增加属性
 ```
-// index.tsx中增加全局window属性
+// 方法1：react-app-env.d.ts中直接增加window的接口（推荐）
+interface Window {
+  __REDUX_DEVTOOLS_EXTENSION__: Function;
+  __wxjs_environment: 'miniprogram' | 'browser';
+  ENV: any;
+  Config: any;
+}
+// 方法2：index.tsx中增加全局window属性
 declare global {
   interface Window {
     __REDUX_DEVTOOLS_EXTENSION__: Function;
+    __wxjs_environment: any;
     ENV: any;
     Config: any;
-    __wxjs_environment: any;
-    WeixinJSBridge: any;
-    wx: any;
-    ISMINIPROGRAM: boolean;
-    ISALIPAYMINI: boolean;
   }
 }
 ```
@@ -33,8 +36,18 @@ declare module 'react-lazy-load' {
     console.log(this);
   })
 ```
+#### setState如何属性名表达式赋值
+```
+  interface IState{
+  }
+  type StateKey = keyof IState
+  handleChange = (key: StateKey, val: any) => {
+    this.setState({
+      [key]: val
+    } as Pick<IState, typeof key>)
+  }
+```
 #### 对象、数组对象的表示
-
 ```
   const obj: {
     [key: string]: any
@@ -42,13 +55,4 @@ declare module 'react-lazy-load' {
   const arrObj: {
     [key: string]: any
   }[] = []
-```
-#### setState
-```
-  type StateKey = keyof IState
-  handleChange = (key: StateKey, val: any) => {
-    this.setState({
-      [key]: val
-    } as Pick<IState, typeof key>)
-  }
 ```

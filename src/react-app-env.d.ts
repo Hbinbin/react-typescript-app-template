@@ -7,7 +7,6 @@ interface Window {
   __REDUX_DEVTOOLS_EXTENSION__: Function;
   __wxjs_environment: 'miniprogram' | 'browser';
   Config: any;
-
 }
 declare namespace NodeJS {
   interface ProcessEnv {
