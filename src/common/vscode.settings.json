@@ -35,7 +35,7 @@
     "vue-html",
     "react",
     "typescript",
-    "typescriptreact",
+    "typescriptreact"
   ],
   "[scss]": {
     "editor.formatOnSave": true
@@ -75,5 +75,5 @@
   "diffEditor.ignoreTrimWhitespace": false,
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
-  },
+  }
 }

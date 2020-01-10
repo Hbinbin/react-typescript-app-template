@@ -4,11 +4,11 @@ import * as serviceWorker from './serviceWorker';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import '@css/index.scss';
-import App from './App';
 import rootReducer from '@redux/rootReducer';
+import App from './App';
 import { getEnv, getPlatform } from '@utils/utils';
+
 const { isDebug, isPrd } = getEnv();
 const { isComputerBrower } = getPlatform();
 // 非生产环境开启vconcole或debug模式强制开启vconcole（仅用于手机端H5的调试）
