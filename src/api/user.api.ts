@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { IGetUserParams } from '@typings/api.typing';
+import { IGetUserParams } from '@typings';
 
 export default class UserAPI {
   /** 获取用户信息API */

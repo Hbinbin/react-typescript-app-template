@@ -1,6 +1,6 @@
 import update from 'immutability-helper';
 import { Dispatch } from 'redux';
-import { IUser } from '@typings/common.typing';
+import { IUser } from '@typings';
 
 // types
 const USER = 'USER';
@@ -25,7 +25,7 @@ export function setUser (userInfo: IUser) {
 }
 
 // reducer
-export default function user (state = initState, action: { type: string; payload: any }) {
+export default function user (state = initState, action: { type: string; payload: any }): IInitState {
   switch (action.type) {
     case USER:
       return update(state, {

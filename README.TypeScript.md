@@ -31,10 +31,12 @@ declare module 'react-lazy-load' {
 #### 匿名函数的this
 ```
   // 回调中直接使用this会报错 'this 隐式具有类型 any，因为它没有类型注释'
-  // this必须作为回调的第一个参数传入，类型为：void | any
+  // 方法1：this必须作为回调的第一个参数传入，类型为：void | any
   ele.addEventListener('touchmove', function(this: any,evt: any) {
     console.log(this);
   })
+  // 方法2：tsconfig.js增加配置
+  "noImplicitThis": false
 ```
 #### setState如何属性名表达式赋值
 ```

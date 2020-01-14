@@ -312,8 +312,8 @@ module.exports = function (webpackEnv) {
         '@css': resolvePath('/src/assets/css'),
         '@images': resolvePath('/src/assets/images'),
         '@common': resolvePath('/src/common'),
-        '@api': resolvePath('/src/api'),
-        '@typings': resolvePath('/src/typings'),
+        '@api': resolvePath('/src/api/index'),
+        '@typings': resolvePath('/src/typings/index'),
       },
       plugins: [
         // Adds support for installing with Plug'n'Play, leading to faster installs and adding

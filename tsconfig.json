@@ -24,14 +24,14 @@
       "@images/*": [
         "assets/images/*"
       ],
-      "@api/*": [
-        "api/*"
+      "@api": [
+        "api/index"
       ],
       "@common/*": [
         "common/*"
       ],
-      "@typings/*": [
-        "typings/*"
+      "@typings": [
+        "typings/index"
       ]
     },
     "allowJs": true,
