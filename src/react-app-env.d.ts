@@ -2,12 +2,6 @@
 /// <reference types="react" />
 /// <reference types="react-dom" />
 
-// 全局window属性
-interface Window {
-  __REDUX_DEVTOOLS_EXTENSION__: Function;
-  __wxjs_environment: 'miniprogram' | 'browser';
-  Config: any;
-}
 declare namespace NodeJS {
   interface ProcessEnv {
     readonly NODE_ENV: 'development' | 'production' | 'test';

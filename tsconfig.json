@@ -50,6 +50,7 @@
     "noImplicitAny": false
   },
   "include": [
-    "src"
+    "src",
+    "common.d.ts"
   ]
 }
