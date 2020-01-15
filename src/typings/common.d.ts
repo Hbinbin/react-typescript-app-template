@@ -1,4 +1,4 @@
-export interface IUser777777 {
+interface IUser{
   name?: string;
   age?: number;
 }

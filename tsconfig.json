@@ -51,6 +51,6 @@
   },
   "include": [
     "src",
-    "common.d.ts"
+    "src/typings/index.d.ts"
   ]
 }

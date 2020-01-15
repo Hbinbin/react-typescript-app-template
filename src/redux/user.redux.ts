@@ -1,6 +1,5 @@
 import update from 'immutability-helper';
 import { Dispatch } from 'redux';
-import { IUser } from '@typings';
 
 // types
 const USER = 'USER';
