@@ -1,6 +1,6 @@
 {
   "react": {
-    "prefix": "react-hooks",
+    "prefix": "react-hooks-ts",
     "body": [
       "import React, { useState, useEffect } from 'react';",
       "import { connect } from 'react-redux';",

@@ -1,6 +1,6 @@
 {
   "react": {
-    "prefix": "react-ts",
+    "prefix": "react-class-ts",
     "body": [
       "import React, { Component } from 'react';",
       "import { connect } from 'react-redux';",
