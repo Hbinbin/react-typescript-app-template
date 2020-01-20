@@ -34,6 +34,8 @@ module.exports = {
     '@typescript-eslint/no-object-literal-type-assertion': 0,
     '@typescript-eslint/no-var-requires': 0,
     '@typescript-eslint/no-unused-vars': 0,
+    '@typescript-eslint/no-empty-function': 0, // 关闭禁止使用空函数
+    '@typescript-eslint/no-inferrable-types': 0, // 关闭类型推断
 
     // react相关配置
     // "react/display-name": 0, //防止在React组件定义中丢失displayName
@@ -68,6 +70,7 @@ module.exports = {
     // "react/no-array-index-key": 0, //防止在数组中遍历中使用数组key做索引
     "react/no-deprecated": 1, //不使用弃用的方法
     // "react/jsx-equals-spacing": 2, //在JSX属性中强制或禁止等号周围的空格
+    "react/jsx-handler-names": 0, // 关闭Handle函数必须传入第一个参数
 
     // react-hooks相关配置
     "react-hooks/rules-of-hooks": "error", // Checks rules of Hooks
