@@ -11,7 +11,7 @@
     "immutability-helper": "^3.0.1",
     "react": "^16.12.0",
     "react-app-polyfill": "^1.0.5",
-    "react-dev-utils": "^10.0.0",
+    "react-dev-utils": "10.0.0",
     "react-dom": "^16.12.0",
     "react-redux": "^7.1.3",
     "react-router-dom": "^5.1.2",
