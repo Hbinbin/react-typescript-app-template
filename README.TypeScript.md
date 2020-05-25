@@ -1,28 +1,45 @@
 
 ### TypeScript的基本语法
 
+#### 全局增加ts类型
+// 1. src/tsconfig.json的include中添加
+```
+"include": [
+  "src",
+  "src/typings/index.d.ts"
+]
+```
+// 2. src/typings/index.d.ts 中引入ts类型
+```
+/// <reference types="./config.d.ts" />
+/// <reference types="./common.d.ts" />
+/// <reference types="./api.d.ts" />
+
+interface Window {
+  __REDUX_DEVTOOLS_EXTENSION__: Function;
+  __wxjs_environment: any;
+  ENV: any;
+  Config: IConfig;
+}
+
+declare const Config: IConfig;
+declare const ENV: any;
+```
 #### 在window增加属性
 ```
-// 方法1：react-app-env.d.ts中直接增加window的接口（推荐）
+// src/typings/index.d.ts中直接增加window的接口
 interface Window {
   __REDUX_DEVTOOLS_EXTENSION__: Function;
   __wxjs_environment: 'miniprogram' | 'browser';
   ENV: any;
   Config: any;
 }
-// 方法2：index.tsx中增加全局window属性
-declare global {
-  interface Window {
-    __REDUX_DEVTOOLS_EXTENSION__: Function;
-    __wxjs_environment: any;
-    ENV: any;
-    Config: any;
-  }
-}
+declare const Config: IConfig;
+declare const ENV: any;
 ```
 #### 对于插件没有ts包的
 ```
-// 在react-app-env.d.ts中增加
+// 在xxx.d.ts中增加
 declare module 'react-lazy-load' {
   const LazyLoad: any
   export default LazyLoad
