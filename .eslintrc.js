@@ -1,7 +1,7 @@
 
 module.exports = {
   root: true,
-  parser: '@typescript-eslint/parser', // typescript-eslint/parser // typescript-eslint-parser
+  parser: '@typescript-eslint/parser',
   parserOptions: {
     "ecmaFeatures": {
       "experimentalObjectRestSpread": true,
@@ -21,7 +21,7 @@ module.exports = {
   ],
   // 2：报错；1：警告；0：关闭规则
   'rules': {
-    // typescript相关配置
+    /****** typescript相关配置 ******/
     'typescript/class-name-casing': 2,
     '@typescript-eslint/interface-name-prefix': 0,
     '@typescript-eslint/explicit-member-accessibility': 0,
@@ -37,7 +37,7 @@ module.exports = {
     '@typescript-eslint/no-empty-function': 0, // 关闭禁止使用空函数
     '@typescript-eslint/no-inferrable-types': 0, // 关闭类型推断
 
-    // react相关配置
+    /****** react/jsx相关配置 ******/
     // "react/display-name": 0, //防止在React组件定义中丢失displayName
     // "react/forbid-prop-types": [2, { "forbid": ["any"] }], //禁止某些propTypes
     // "react/jsx-boolean-value": 2, //在JSX中强制布尔属性符号
@@ -72,11 +72,11 @@ module.exports = {
     // "react/jsx-equals-spacing": 2, //在JSX属性中强制或禁止等号周围的空格
     "react/jsx-handler-names": 0, // 关闭Handle函数必须传入第一个参数
 
-    // react-hooks相关配置
+    /****** react-hooks相关配置 ******/
     "react-hooks/rules-of-hooks": "error", // Checks rules of Hooks
     "react-hooks/exhaustive-deps": "warn", // Checks effect dependencies
 
-    // 其它相关配置
+    /****** js相关配置 ******/
     // "no-new": 0,
     // "no-class-assign": 0 // 禁止修改类声明的变量
     // 'arrow-parens': 0, // allow paren-less arrow functions
@@ -97,7 +97,8 @@ module.exports = {
     "no-unreachable": 0,
     "no-new": 0,
     "comma-dangle": 0, // 尾逗号
-    "semi": ["error", "always"], // 语句结束分号
-    "lines-between-class-members": 0
+    // "semi": 0,// ["error", "always"], // 语句结束分号
+    "lines-between-class-members": 0,
+    "no-empty-pattern": 0
   }
 }

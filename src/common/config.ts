@@ -6,4 +6,4 @@ export default class Config implements IConfig {
   /** 当前渠道 */
   static readonly CHANNEL = 'mall';
 }
-window.Config = Config;
+window.Config = Config

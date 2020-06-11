@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 class Hello extends Component {
   constructor (props: any) {
-    super(props);
+    super(props)
     this.state = {
 
-    };
+    }
   }
 
   render () {
@@ -12,7 +12,7 @@ class Hello extends Component {
       <div className='hello'>
         <h2>Lying on the beach</h2>
       </div>
-    );
+    )
   }
 }
-export default Hello;
+export default Hello

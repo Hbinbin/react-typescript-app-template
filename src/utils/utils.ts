@@ -4,21 +4,21 @@ export function getEnv () {
     isDebug: localStorage.getItem('isDebug') === '1',
     isDev: process.env.NODE_ENV === 'development', // 本地开发环境
     isPrd: process.env.NODE_ENV === 'production' // 生产环境
-  };
+  }
 }
 /** 获取当前系统信息 */
 export function getPlatform () {
-  const ua = navigator.userAgent.toLowerCase();
-  const sysPlatform = navigator.platform.toLowerCase();
-  const isIpad = ua.includes('ipad');
-  const isAndroid = ua.includes('android');
-  const isIOS = ua.includes('iphone os');
-  const isIphoneX = isIOS && (screen.height >= 812 && screen.width >= 375);
-  const isWeixin = ua.includes('micromessenger');
-  const isWeixinMiniProgram = isWeixin && ua.includes('miniprogram') || window.__wxjs_environment === 'miniprogram';
-  const isWeixinBrower = isWeixin && !isWeixinMiniProgram || window.__wxjs_environment === 'browser';
-  const isComputerBrower = sysPlatform.includes('win') || sysPlatform.includes('mac');
-  const isAliPayMiniProgram = ua.includes('alipayclient');
+  const ua = navigator.userAgent.toLowerCase()
+  const sysPlatform = navigator.platform.toLowerCase()
+  const isIpad = ua.includes('ipad')
+  const isAndroid = ua.includes('android')
+  const isIOS = ua.includes('iphone os')
+  const isIphoneX = isIOS && (screen.height >= 812 && screen.width >= 375)
+  const isWeixin = ua.includes('micromessenger')
+  const isWeixinMiniProgram = isWeixin && ua.includes('miniprogram') || window.__wxjs_environment === 'miniprogram'
+  const isWeixinBrower = isWeixin && !isWeixinMiniProgram || window.__wxjs_environment === 'browser'
+  const isComputerBrower = sysPlatform.includes('win') || sysPlatform.includes('mac')
+  const isAliPayMiniProgram = ua.includes('alipayclient')
   return {
     isAndroid,
     isIOS,
@@ -30,7 +30,7 @@ export function getPlatform () {
     isWeixinMiniProgram, // 微信小程序环境
     isWeixinBrower, // 微信浏览器环境（android下无法判断）
     isAliPayMiniProgram // 支付宝小程序
-  };
+  }
 }
 
 /**
@@ -41,15 +41,15 @@ export function getPlatform () {
  * @returns {object|string}
  */
 export const getParams = ({ url = location.search, query, decode = true }: { url?: string; query?: string; decode?: boolean } = {}) => {
-  const paramStr = url.split('?')[1];
-  const paramArr = paramStr && paramStr.split('&') || [];
-  const params: any = {};
+  const paramStr = url.split('?')[1]
+  const paramArr = paramStr && paramStr.split('&') || []
+  const params: any = {}
   paramArr.forEach((param, i) => {
-    const paramData = param.split('=');
-    params[paramData[0]] = decode ? decodeURIComponent(paramData[1]) : paramData[1];
-  });
-  return query ? params[query] : params;
-};
+    const paramData = param.split('=')
+    params[paramData[0]] = decode ? decodeURIComponent(paramData[1]) : paramData[1]
+  })
+  return query ? params[query] : params
+}
 
 /**
  * url添加参数
@@ -60,24 +60,24 @@ export const getParams = ({ url = location.search, query, decode = true }: { url
  */
 export function addParams ({ url = '', params = {}, encode = false }: { url?: string; params: object; encode?: boolean}) {
   if (!Object.keys(params).length) {
-    return url;
+    return url
   }
-  url = decodeURIComponent(url);
-  const [hostStr, searchStr] = url.split('?');
+  url = decodeURIComponent(url)
+  const [hostStr, searchStr] = url.split('?')
   if (url.includes('?')) {
-    const oldParams = {};
+    const oldParams = {}
     searchStr.split('&').forEach(val => {
-      const newVal = val.split('=');
-      oldParams[newVal[0]] = newVal[1];
-    });
+      const newVal = val.split('=')
+      oldParams[newVal[0]] = newVal[1]
+    })
     // 合并、去重参数
-    params = { ...oldParams, ...params };
+    params = { ...oldParams, ...params }
   }
-  let [paramsStr, i] = ['', 1];
+  let [paramsStr, i] = ['', 1]
   for (const [key, val] of Object.entries(params)) {
-    paramsStr += i > 1 ? `&${key}=${val}` : `${key}=${val}`;
-    i++;
+    paramsStr += i > 1 ? `&${key}=${val}` : `${key}=${val}`
+    i++
   }
-  const baseUrl = `${hostStr}?${paramsStr}`;
-  return encode ? encodeURIComponent(baseUrl) : baseUrl;
+  const baseUrl = `${hostStr}?${paramsStr}`
+  return encode ? encodeURIComponent(baseUrl) : baseUrl
 }
