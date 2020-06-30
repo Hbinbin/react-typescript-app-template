@@ -14,14 +14,11 @@
 // 1、安装ESLint
 $ npm install eslint --save-dev  
 
-// 2、安装typescript和@typescript-eslint/parser解析器  
-$ npm install typescript 
-$ npm install @typescript-eslint/parser --save-dev 
+// 2、安装typescript  
+$ npm install typescript --save-dev 
 
-// 3、安装 @typescript-eslint/eslint-plugin
-$ npm i @typescript-eslint/eslint-plugin --save-dev  
-
-注：@typescript-eslint/parser 和 @typescript-eslint/eslint-plugin的版本必须保持一致  
+// 3、安装 @typescript-eslint/parser解析器和@typescript-eslint/eslint-plugin
+$ npm i @typescript-eslint/parser @typescript-eslint/eslint-plugin --save-dev
 
 //  4、配置规则插件
 extends: ["standard", "standard-react", "plugin:@typescript-eslint/recommended"],
@@ -168,7 +165,7 @@ devtool: isEnvProduction
   1.需要开启.map文件
   2.安装插件：
   ```
-  npm install --save source-map-explorer
+  npm install --save-dev source-map-explorer
   ```
   3.package.json中添加运行命令：
   ```

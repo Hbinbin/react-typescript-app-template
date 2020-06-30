@@ -4,7 +4,7 @@ module.exports = {
   parser: '@typescript-eslint/parser',
   parserOptions: {
     "ecmaFeatures": {
-      "experimentalObjectRestSpread": true,
+      "experimentalObjectRestSpread": true, // es6对象的扩展运算符 
       "jsx": true
     },
     sourceType: 'module'
@@ -15,14 +15,12 @@ module.exports = {
   extends: ["standard", "standard-react", "plugin:@typescript-eslint/recommended"],// https://github.com/standard/standard/blob/master/docs/RULES-en.md
   plugins: [
     "react",
-    "typescript",
     "@typescript-eslint",
     "react-hooks"
   ],
   // 2：报错；1：警告；0：关闭规则
   'rules': {
     /****** typescript相关配置 ******/
-    'typescript/class-name-casing': 2,
     '@typescript-eslint/interface-name-prefix': 0,
     '@typescript-eslint/explicit-member-accessibility': 0,
     '@typescript-eslint/explicit-function-return-type': 0,
