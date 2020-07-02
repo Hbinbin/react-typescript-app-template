@@ -7,30 +7,29 @@
 `$ sh init.start.sh`
 ### 打包
 `$ npm run build`
+### 分析项目
+`$ sh init.analyze.sh`
 
 ### 1.Typescript的ESlint配置
-参考地址：[Typescript配置](https://ts.xcatliu.com/engineering/lint)
+##### 1. 安装ESLint
+`$ npm install eslint --save-dev`
+
+##### 2. 安装typescript  
+`$ npm install typescript --save-dev`
+
+##### 3. 安装 @typescript-eslint/parser解析器和@typescript-eslint/eslint-plugin
+`$ npm i @typescript-eslint/parser @typescript-eslint/eslint-plugin --save-dev`
+
+##### 4. 配置规则插件
+`extends: ["standard", "standard-react", "plugin:@typescript-eslint/recommended"]`
+安装插件：`$ npm i standard eslint-config-standard-react` --save-dev`
+##### 5. 代码自动修复的配置
+#### 需要注意的是：如果要开启保存文件时自动修复代码需要修改vscode的配置文件：settings.json
 ```
-// 1、安装ESLint
-$ npm install eslint --save-dev  
-
-// 2、安装typescript  
-$ npm install typescript --save-dev 
-
-// 3、安装 @typescript-eslint/parser解析器和@typescript-eslint/eslint-plugin
-$ npm i @typescript-eslint/parser @typescript-eslint/eslint-plugin --save-dev
-
-//  4、配置规则插件
-extends: ["standard", "standard-react", "plugin:@typescript-eslint/recommended"],
-
-// 5、代码自动修复的配置
-// 需要注意的是：如果要开启保存文件时自动修复代码需要修改vscode的配置文件：settings.json
-// 增加需要自动修复的语言
+  // 增加需要自动修复的语言
   "eslint.validate": [
     "html",
     "javascript",
-    "vue",
-    "vue-html",
     "react",
     "typescript",
     "typescriptreact",
@@ -46,8 +45,8 @@ extends: ["standard", "standard-react", "plugin:@typescript-eslint/recommended"]
 [vscode的settings.json配置参考](https://github.com/Hbinbin/react-typescript-app-template/blob/master/vscode.settings.json)
 [tsconfig.json配置参考](https://github.com/Hbinbin/react-typescript-app-template/blob/master/tsconfig.json)
 ### 2.配置模块的别名alias
+##### 1. webpack.config.js中增加方法和配置
 ```
-// 1.webpack.config.js中增加方法和配置
 const resolvePath = function (dir) {
   return path.join(__dirname, '..', dir)
 }
@@ -60,8 +59,10 @@ alias: {
   '@utils': resolvePath('/src/utils')
 }
 ...
+```
 
-// 2.在tscongfig.json中compilerOptions中加
+##### 2. 在tscongfig.json中compilerOptions中加
+```
 ...
 "baseUrl": "src",
 "paths": {
@@ -78,49 +79,71 @@ alias: {
     "utils/*"
   ]
 }
-3.重启项目：npm start
 ```
-
+##### 3. 重启项目：npm start
 
 ### 其它
-#### 1. antd/antd-mobile的动态引入
-```
-// package.json中添加
-"plugins": [
-    [
-      "import",
-      {
-        "libraryName": "antd-mobile",
-        "style": "css"
-      }
-    ],
-    ...
-  ]
-// webpack.config.js中添加如下
-oneof: [
-  some code.....
-  {
-    test: /\.(js|mjs|jsx|ts|tsx)$/,
-    include: paths.appSrc,
-    loader: require.resolve('babel-loader'),
-    options: {
-      customize: require.resolve(
-        'babel-preset-react-app/webpack-overrides'
-      ),
-      plugins: [
-        some code.....
-        [
-          require.resolve('babel-plugin-import'),
-          { libraryName: 'antd-mobile', style: 'css' }
-        ]
-      ],
-      some code.....
-    },
-  },
-]
+#### 1. 配置sass全局变量
+安装`sass-resources-loader`
+`$ npm i sass-resources-loader --save-dev`  
 
+webpack.config.js 添加如下配置
 ```
-#### 1.vconsole调试插件的引入
+rules: {
+  ...
+  oneOf: [
+    {
+      test: sassRegex,
+      exclude: sassModuleRegex,
+      use: getStyleLoaders(
+        {
+          importLoaders: 3,
+          sourceMap: isEnvProduction && shouldUseSourceMap,
+        },
+        'sass-loader'
+      ).concat( // 配置sass全局变量
+        [{
+          loader: 'sass-resources-loader',
+          options: {
+            resources: [
+              path.resolve(__dirname, '../src/assets/css/theme.scss'),
+              path.resolve(__dirname, '../src/assets/css/variables.scss'),
+              path.resolve(__dirname, '../src/assets/css/mixins.scss'),
+            ]
+          }
+        }]
+      ),
+      sideEffects: true,
+    },
+    {
+      test: sassModuleRegex,
+      use: getStyleLoaders(
+        {
+          importLoaders: 3,
+          sourceMap: isEnvProduction && shouldUseSourceMap,
+          modules: {
+            getLocalIdent: getCSSModuleLocalIdent,
+          },
+        },
+        'sass-loader'
+      ).concat( // 配置sass全局变量
+        [{
+          loader: 'sass-resources-loader',
+          options: {
+            resources: [
+              path.resolve(__dirname, '../src/assets/css/theme.scss'),
+              path.resolve(__dirname, '../src/assets/css/variables.scss'),
+              path.resolve(__dirname, '../src/assets/css/mixins.scss'),
+            ]
+          }
+        }]
+      ),
+    },
+  ]
+  ...
+}
+```
+#### 2. vconsole调试插件的引入
 `$ npm i vconsole --save-dev`
 在入口文件index.tsx中import且创建vcosole实例
 ```
@@ -129,7 +152,7 @@ const vConsole = new VConsole()
 ```
 在typescript中引入会报找不到对应ts的模块，在react-app-env.d.ts中增加全局声明
 `declare module 'vconsole'`
-#### 2.生产打包去除console、debugger
+#### 3. 生产打包去除console、debugger
 ```
 // webpack之前的打包压缩插件是uglifyjs-webpack-plugin，现
 在换成了terser-webpack-plugin
@@ -148,7 +171,7 @@ const vConsole = new VConsole()
       ...somecode
     },
 ```
-#### 3.打包去除.map文件
+#### 4. 打包去除.map文件
 ```
 // 修改webpack.config.js中的devtool配置
 devtool: isEnvProduction
@@ -161,7 +184,7 @@ devtool: isEnvProduction
       ? false
       : isEnvDevelopment && 'cheap-module-source-map'
 ```
-#### 4.项目分析:
+#### 5. 项目分析:
   1.需要开启.map文件
   2.安装插件：
   ```
@@ -176,11 +199,5 @@ devtool: isEnvProduction
   npm run build
   npm run analyze
   ```
-  #### 5.vscode新建文件时的文件模板
-  ```
-  在vscode"创建用户代码片段"，代码详见common文件夹下的：
-  vscode.react-hooks.code-snippets.json
-  vscode.react-ts.code-snippets
-  ```
-
-  ## 配置完不生效时，请重启编辑器！
+```
+## 配置完不生效时，请重启编辑器！

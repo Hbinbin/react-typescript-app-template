@@ -1,0 +1,38 @@
+// border
+@mixin border($width: 1px, $color: $blackColor, $radius: 4px, $style: solid) {
+  border: {
+    width: $width;
+    color: $color;
+    radius: $radius;
+    style: $style;
+  }
+}
+// font
+@mixin font($width: 14px, $color: $blackColor, $weight: 400) {
+  color: $color;
+  font: {
+    size: $width;
+    weight: $weight;
+  }
+}
+// 文字溢出显示...
+@mixin textEllipsis{
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+// flex居中
+@mixin flexCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+// 垂直水平居中
+@mixin positionCenter{
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+}

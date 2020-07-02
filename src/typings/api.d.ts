@@ -1,3 +1,3 @@
-interface IGetUserParams {
-  mobile: string;
+/** 全局配置 */
+interface IConfig {
 }

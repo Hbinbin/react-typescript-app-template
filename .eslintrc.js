@@ -1,25 +1,34 @@
-
 module.exports = {
   root: true,
-  parser: '@typescript-eslint/parser',
-  parserOptions: {
-    "ecmaFeatures": {
-      "experimentalObjectRestSpread": true, // es6对象的扩展运算符 
-      "jsx": true
-    },
-    sourceType: 'module'
-  },
   env: {
     browser: true,
+    es6: true
   },
-  extends: ["standard", "standard-react", "plugin:@typescript-eslint/recommended"],// https://github.com/standard/standard/blob/master/docs/RULES-en.md
-  plugins: [
-    "react",
-    "@typescript-eslint",
-    "react-hooks"
+  extends: [
+    'standard',
+    'standard-react',
+    'plugin:@typescript-eslint/recommended'
   ],
-  // 2：报错；1：警告；0：关闭规则
-  'rules': {
+  globals: {
+    Atomics: 'readonly',
+    SharedArrayBuffer: 'readonly'
+  },
+  parser: '@typescript-eslint/parser',
+  parserOptions: {
+    ecmaFeatures: {
+      experimentalObjectRestSpread: true, // es6对象的扩展运算符 
+      jsx: true
+    },
+    ecmaVersion: 2018,
+    sourceType: 'module'
+  },
+  plugins: [
+    'html',
+    'react',
+    '@typescript-eslint',
+    'react-hooks'
+  ],
+  rules: {
     /****** typescript相关配置 ******/
     '@typescript-eslint/interface-name-prefix': 0,
     '@typescript-eslint/explicit-member-accessibility': 0,
@@ -34,6 +43,23 @@ module.exports = {
     '@typescript-eslint/no-unused-vars': 0,
     '@typescript-eslint/no-empty-function': 0, // 关闭禁止使用空函数
     '@typescript-eslint/no-inferrable-types': 0, // 关闭类型推断
+    "@typescript-eslint/naming-convention": [ // 限制interface、type、class首字符必须大写，且必须以特定字符开头
+      "error",
+      {
+        "selector": "typeLike",
+        "format": ["PascalCase"],
+        "prefix": ["T"]
+      },
+      {
+        "selector": "interface",
+        "format": ["PascalCase"],
+        "prefix": ["I"]
+      },
+      {
+        "selector": "class",
+        "format": ["PascalCase"],
+      }
+    ],
 
     /****** react/jsx相关配置 ******/
     // "react/display-name": 0, //防止在React组件定义中丢失displayName
@@ -72,7 +98,7 @@ module.exports = {
 
     /****** react-hooks相关配置 ******/
     "react-hooks/rules-of-hooks": "error", // Checks rules of Hooks
-    "react-hooks/exhaustive-deps": "warn", // Checks effect dependencies
+    "react-hooks/exhaustive-deps": 0, // Checks effect dependencies
 
     /****** js相关配置 ******/
     // "no-new": 0,
@@ -97,6 +123,7 @@ module.exports = {
     "comma-dangle": 0, // 尾逗号
     // "semi": 0,// ["error", "always"], // 语句结束分号
     "lines-between-class-members": 0,
-    "no-empty-pattern": 0
+    "no-empty-pattern": 0,
+    "no-eval": 0
   }
 }

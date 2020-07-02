@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/naming-convention */
 // This optional code is used to register a service worker.
 // register() is not called by default.
 
@@ -12,12 +13,12 @@
 
 const isLocalhost = Boolean(
   window.location.hostname === 'localhost' ||
-  // [::1] is the IPv6 localhost address.
-  window.location.hostname === '[::1]' ||
-  // 127.0.0.0/8 are considered localhost for IPv4.
-  window.location.hostname.match(
-    /^127(?:\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)){3}$/
-  )
+    // [::1] is the IPv6 localhost address.
+    window.location.hostname === '[::1]' ||
+    // 127.0.0.0/8 are considered localhost for IPv4.
+    window.location.hostname.match(
+      /^127(?:\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)){3}$/
+    )
 )
 
 type Config = {
@@ -51,7 +52,7 @@ export function register (config?: Config) {
         navigator.serviceWorker.ready.then(() => {
           console.log(
             'This web app is being served cache-first by a service ' +
-            'worker. To learn more, visit https://bit.ly/CRA-PWA'
+              'worker. To learn more, visit https://bit.ly/CRA-PWA'
           )
         })
       } else {
@@ -79,7 +80,7 @@ function registerValidSW (swUrl: string, config?: Config) {
               // content until all client tabs are closed.
               console.log(
                 'New content is available and will be used when all ' +
-                'tabs for this page are closed. See https://bit.ly/CRA-PWA.'
+                  'tabs for this page are closed. See https://bit.ly/CRA-PWA.'
               )
 
               // Execute callback
@@ -138,8 +139,12 @@ function checkValidServiceWorker (swUrl: string, config?: Config) {
 
 export function unregister () {
   if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.ready.then(registration => {
-      registration.unregister()
-    })
+    navigator.serviceWorker.ready
+      .then(registration => {
+        registration.unregister()
+      })
+      .catch(error => {
+        console.error(error.message)
+      })
   }
 }

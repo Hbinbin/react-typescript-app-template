@@ -1,0 +1,7 @@
+// 主题色全局变量
+:root {
+  --themeColor: rgba(0,0,0,1); 
+  --themeBgColor: rgba(242,242,242,1);
+}
+$themeColor: var(--themeColor); // 主要用于字体、图标
+$themeBgColor: var(--themeBgColor); // 主要用于按钮、色块的背景色

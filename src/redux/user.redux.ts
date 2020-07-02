@@ -11,7 +11,7 @@ interface IInitState {
 
 // state
 const initState: IInitState = {
-  user: {}
+  user: {} as IUser
 }
 
 // actions

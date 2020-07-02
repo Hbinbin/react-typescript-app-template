@@ -8,15 +8,23 @@
     ],
     "baseUrl": "src",
     "paths": {
-      "*": ["types/*"],
-      "@cps/*": [
-        "components/*"
+      "@pages/*": [
+        "pages/*"
+      ],
+      "@cps": [
+        "components/index"
       ],
       "@redux/*": [
         "redux/*"
       ],
-      "@utils/*": [
-        "utils/*"
+      "@api": [
+        "api/index"
+      ],
+      "@utils": [
+        "common/utils/index"
+      ],
+      "@common/*": [
+        "common/*"
       ],
       "@css/*": [
         "assets/css/*"
@@ -24,14 +32,8 @@
       "@images/*": [
         "assets/images/*"
       ],
-      "@api": [
-        "api/index"
-      ],
-      "@common/*": [
-        "common/*"
-      ],
-      "@typings": [
-        "typings/index"
+      "@ctrls/*": [
+        "controllers/*"
       ]
     },
     "allowJs": true,
@@ -45,9 +47,8 @@
     "resolveJsonModule": true,
     "isolatedModules": false,
     "noEmit": true,
-    "jsx": "preserve",
-    "experimentalDecorators": true,
-    "noImplicitAny": false
+    "jsx": "react",
+    "experimentalDecorators": true
   },
   "include": [
     "src",

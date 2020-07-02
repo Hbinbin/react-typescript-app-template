@@ -1,0 +1,6 @@
+echo 下载项目依赖...
+npm i
+echo 依赖下载完成
+echo 启动项目...
+npm start
+echo 启动成功
