@@ -22,7 +22,7 @@
 
 ##### 4. 配置规则插件
 `extends: ["standard", "standard-react", "plugin:@typescript-eslint/recommended"]`
-安装插件：`$ npm i standard eslint-config-standard-react` --save-dev`
+安装插件：`$ npm i standard eslint-config-standard-react --save-dev`
 ##### 5. 代码自动修复的配置
 #### 需要注意的是：如果要开启保存文件时自动修复代码需要修改vscode的配置文件：settings.json
 ```
