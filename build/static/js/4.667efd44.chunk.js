@@ -1,2 +1,0 @@
-(this["webpackJsonpreact-typescript-mobx-template"]=this["webpackJsonpreact-typescript-mobx-template"]||[]).push([[4],{39:function(t,e,c){},41:function(t,e,c){"use strict";c.r(e);var s=c(0),a=c.n(s),r=c(17);c(39);e.default=Object(r.b)("userMobx")(Object(r.c)((function(t){t.userMobx;return a.a.createElement("div",{className:""},"\u6211\u662f\u4e2a\u4eba\u4e2d\u5fc3")})))}}]);
-//# sourceMappingURL=4.667efd44.chunk.js.map
