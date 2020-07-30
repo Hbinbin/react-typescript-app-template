@@ -200,4 +200,42 @@ devtool: isEnvProduction
   npm run analyze
   ```
 ```
+#### 6. antd/antd-mobile 按需引入
+```
+`webpack.config.js`
+ oneOf: [
+   ...some code
+   {
+      test: /\.(js|mjs|jsx|ts|tsx)$/,
+      include: paths.appSrc,
+      loader: require.resolve('babel-loader'),
+      options: {
+        customize: require.resolve(
+          'babel-preset-react-app/webpack-overrides'
+        ),
+
+        plugins: [
+          [
+            require.resolve('babel-plugin-named-asset-import'),
+            {
+              loaderMap: {
+                svg: {
+                  ReactComponent:
+                    '@svgr/webpack?-svgo,+titleProp,+ref![path]',
+                },
+              },
+            },
+          ],
+          // 添加antd按需引入
+          [
+            'import',
+            { libraryName: 'antd', style: 'css' },
+            'antd'
+          ],
+        ],
+      },
+   },
+   ...some code 
+ ]
+```
 ## 配置完不生效时，请重启编辑器！
