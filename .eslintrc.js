@@ -4,6 +4,9 @@ module.exports = {
     browser: true,
     es6: true
   },
+  settings: {
+    "version": "detect"
+  },
   extends: [
     'standard',
     'standard-react',
@@ -124,6 +127,9 @@ module.exports = {
     // "semi": 0,// ["error", "always"], // 语句结束分号
     "lines-between-class-members": 0,
     "no-empty-pattern": 0,
-    "no-eval": 0
+    "no-eval": 0,
+    "quote-props": 0, // https://eslint.org/docs/rules/quote-props
+    "prefer-promise-reject-errors": 0, // https://eslint.org/docs/rules/prefer-promise-reject-errors
+    "prefer-const": 0
   }
 }

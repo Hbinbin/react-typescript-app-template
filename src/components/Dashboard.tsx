@@ -9,7 +9,7 @@ const Dashboard: FC = ({ }) => {
     <Suspense fallback={null}>
       <Router>
         <Switch>
-          <img src={require('@images/hello.png')} />
+          {/* <img src={require('@images/hello.png')} /> */}
           <Route exact path='/' render={() => <Redirect to='/home' />} />
           <Route path='/home' component={Home} />
           <Route path='/my' component={My} />
